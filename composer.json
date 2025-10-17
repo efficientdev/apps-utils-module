@@ -1,0 +1,30 @@
+{
+    "name": "efficientdev/apps-utils-module",
+    "description": "Fetures apps sync and helpful classes for all apps created by upas and dml",
+      "type": "library",
+      "license": "MIT",
+      "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0|^10.0"
+      },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "EfficientDev\\AppsUtilsModule\\AppsUtilsProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "EfficientDev\\AppsUtilsModule\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Uwalogho Precious",
+            "email": "digitalmonarchltd@gmail.com"
+        }
+    ]
+}
