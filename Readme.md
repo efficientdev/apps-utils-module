@@ -1,21 +1,58 @@
-Readme.md
 
+---
 
-#components
+# Apps Utils Module
+
+A Laravel package providing utility components and traits for handling usernames during registration, login, and password reset processes.
+
+---
+
+## 📦 Installation
+
+```bash
+composer require efficientdev/apps-utils-module
+```
+
+---
+
+## 🧩 Components
+
+Use the following Blade component in your registration view:
+
+```blade
 <x-apps-utils::register-username />
+```
 
-#publish
+---
+
+## 🚀 Publishing Assets
+
+### Publish UI Components
+
+```bash
 php artisan vendor:publish --tag=apps-utils-components
+```
 
-#publish database migrations
+### Publish Database Migrations
+
+```bash
 php artisan vendor:publish --tag=apps-utils-migrations
+```
 
-#publish controllers, jobs
+### Publish Controllers, Jobs, and More
+
+```bash
 php artisan vendor:publish --tag=apps-utils
+```
 
+---
 
+## 🧠 Usage
 
-# in app\Models\User.php
+### 1. Update Your `User` Model
+
+```php
+// app/Models/User.php
 
 use EfficientDev\AppsUtilsModule\Traits\HasUsername;
 
@@ -25,9 +62,16 @@ class User extends Authenticatable
 
     // ...
 }
+```
 
+---
 
-# in app/Http/Controllers/Auth/AuthenticatedSessionController.php
+### 2. Update Auth Controllers
+
+#### Login Controller
+
+```php
+// app/Http/Controllers/Auth/AuthenticatedSessionController.php
 
 use EfficientDev\AppsUtilsModule\Traits\UsernameAuthTrait;
 
@@ -42,8 +86,12 @@ class AuthenticatedSessionController extends Controller
 
     // ...
 }
+```
 
-#in app/Http/Controllers/Auth/PasswordResetLinkController.php
+#### Password Reset Controller
+
+```php
+// app/Http/Controllers/Auth/PasswordResetLinkController.php
 
 use EfficientDev\AppsUtilsModule\Traits\UsernameAuthTrait;
 
@@ -56,9 +104,12 @@ class PasswordResetLinkController extends Controller
         return $this->sendUsernameBasedResetLink($request);
     }
 }
+```
 
+#### Registration Controller
 
-#in app/Http/Controllers/Auth/RegisteredUserController.php
+```php
+// app/Http/Controllers/Auth/RegisteredUserController.php
 
 use EfficientDev\AppsUtilsModule\Traits\ValidatesUsername;
 
@@ -85,4 +136,17 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 }
+```
 
+---
+
+## ✅ Summary
+
+This module makes it easy to integrate username-based authentication into your Laravel app, including:
+
+* Registration form field
+* Login with username
+* Username validation and database support
+* Password reset via username
+
+---
